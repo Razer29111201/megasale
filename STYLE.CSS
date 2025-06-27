@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e60000;
+    color: white;
+    text-align: center;
+}
+
+.main-container {
+    padding: 40px 20px;
+}
+
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.header .logo span {
+    font-size: 14px;
+    font-weight: normal;
+    color: white;
+    display: block;
+}
+
+.title {
+    font-size: 32px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.location-note {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.promo-box {
+    background-color: white;
+    color: #e60000;
+    border-radius: 20px;
+    padding: 40px 20px;
+    display: inline-block;
+    width: 90%;
+    max-width: 500px;
+}
+
+.promo-period {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 30px 0;
+}
+
+.offer-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+.offer-label {
+    font-weight: bold;
+}
+
+.offer-value {
+    font-style: italic;
+}
+
+.luuy {
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 8px;
+    text-align: start;
+}
+
+.sl p {
+    margin: 5px;
+}
+
+#sl {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.current-time-label {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.current-time {
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+/* Responsive cho màn hình nhỏ hơn 600px */
+@media screen and (max-width: 600px) {
+    .main-container {
+        padding: 20px 10px;
+        max-width: 600px;
+    }
+
+    .promo-box {
+        padding: 15px 5px;
+        width: 100%;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .location-note {
+        font-size: 14px;
+    }
+
+    .promo-period {
+        font-size: 16px;
+    }
+
+    .offer-item {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 16px;
+        padding: 5px 0;
+    }
+
+    .offer-label,
+    .offer-value {
+        display: block;
+        width: 100%;
+    }
+
+    .current-time-label {
+        font-size: 18px;
+    }
+
+    .current-time {
+        font-size: 16px;
+    }
+
+    #sl {
+        font-size: 32px;
+    }
+
+    .luuy {
+        font-size: 10px;
+        text-align: center;
+    }
+}

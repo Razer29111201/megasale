@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindX Mega Sale</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="header">
+            <div class="logo">mindX <span>Technology School</span></div>
+            <h1 class="title">SINH NHẬT 1 TUỔI MINDX</h1>
+            <p class="location-note">CHỈ ÁP DỤNG CHO KHU VỰC TỈNH BẮC 2</p>
+        </div>
+
+
+
+        <div class="promo-box">
+            <p class="promo-period">Chương trình khuyến mại từ 24/06 - 30/06</p>
+            <div class="sl">
+                <div id="sl"></div>
+                <p>Số lượng còn lại</p>
+            </div>
+            <div class="offer-item">
+                <span class="offer-label">12 Tháng:</span>
+                <span class="offer-value">Giảm 500.000 VND *</span>
+            </div>
+
+            <div class="offer-item">
+                <span class="offer-label">24 Tháng:</span>
+                <span class="offer-value">Giảm 1.000.000 VND *</span>
+            </div>
+
+            <div class="offer-item">
+                <span class="offer-label">Bảo trợ:</span>
+                <span class="offer-value">Giảm 15% * </span>
+            </div>
+            <div class="current-time-label">Thời gian hiện tại</div>
+            <div class="current-time" id="time">--:--:--</div>
+
+            <div class="luuy">
+                * Ưu đãi kết thúc khi hết thời gian hoặc hết số lượng
+            </div>
+        </div>
+    </div>
+    <script>
+        // Gọi API từ Google Apps Script
+        function callGoogleScriptAPI() {
+            fetch("https://script.google.com/macros/s/AKfycbzSh8Dm5huzLNY0waUqVa0FHrSJCMtX38waWy5LNNi4LipQ546p4hfvUFt3Sq9Bn-PLIA/exec")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Lỗi kết nối với API");
+                    }
+                    return response.json(); // hoặc .text() nếu phản hồi không phải JSON
+                })
+                .then(data => {
+                    console.log("Dữ liệu nhận được:", data);
+                    document.getElementById("sl").innerText = data[0].sl
+                    // Xử lý dữ liệu ở đây (ví dụ: cập nhật DOM)
+                })
+                .catch(error => {
+                    console.error("Lỗi khi gọi API:", error);
+                });
+        }
+
+        // Gọi hàm khi trang tải xong (tùy chọn)
+        setInterval(callGoogleScriptAPI, 1000);
+        callGoogleScriptAPI();
+
+
+
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('vi-VN');
+            document.getElementById('time').textContent = timeString;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+
+    </script>
+</body>
+
+</html>
