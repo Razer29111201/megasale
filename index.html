@@ -12,31 +12,27 @@
     <div class="main-container">
         <div class="header">
             <div class="logo">mindX <span>Technology School</span></div>
-            <h1 class="title">SINH NHẬT 1 TUỔI MINDX</h1>
+            <h1 class="title" id="title"></h1>
             <p class="location-note">CHỈ ÁP DỤNG CHO KHU VỰC TỈNH BẮC 2</p>
         </div>
 
 
 
         <div class="promo-box">
-            <p class="promo-period">Chương trình khuyến mại từ 05/07 - 07/07</p>
+            <p class="promo-period" id="des"></p>
             <div class="sl">
                 <div id="sl"></div>
                 <p>Số lượng còn lại</p>
             </div>
-            <div class="offer-item">
-                <span class="offer-label">12 Tháng:</span>
-                <span class="offer-value">Giảm 700.000 VND *</span>
+            <div class="offer-item" id="12t">
+
             </div>
 
-            <div class="offer-item">
-                <span class="offer-label">24 Tháng:</span>
-                <span class="offer-value">Giảm 1.500.000 VND *</span>
+            <div class="offer-item" id="24t">
+
             </div>
 
-            <div class="offer-item">
-                <span class="offer-label">Bảo trợ:</span>
-                <span class="offer-value">Giảm 5% * </span>
+            <div class="offer-item" id="bt">
             </div>
             <div class="current-time-label">Thời gian hiện tại</div>
             <div class="current-time" id="time">--:--:--</div>
@@ -58,6 +54,19 @@
                 })
                 .then(data => {
                     console.log("Dữ liệu nhận được:", data);
+
+                    if (data[0]["12t"].length > 0) {
+                        document.getElementById("12t").innerHTML = `<span class="offer-label">12 Tháng:</span> <span class="offer-value">${data[0]["12t"]}</span>`
+                    }
+                    if (data[0]["24t"].length > 0) {
+                        document.getElementById("24t").innerHTML = `<span class="offer-label">24 Tháng:</span> <span class="offer-value">${data[0]["24t"]}</span>`
+
+                    }
+                    if (data[0]["bt"].length > 0) {
+                        document.getElementById("bt").innerHTML = `<span class="offer-label">Bảo trợ:</span> <span class="offer-value">${data[0]["bt"]}</span>`
+                    }
+                    document.getElementById("title").innerText = data[0].title
+                    document.getElementById("des").innerText = data[0].des
                     document.getElementById("sl").innerText = data[0].sl
                     // Xử lý dữ liệu ở đây (ví dụ: cập nhật DOM)
                 })
